@@ -1,0 +1,83 @@
+.header-container {
+  background-color: #5081a0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 150px;
+}
+
+.header-container .banner {
+  max-width: 1280px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  color: white;
+}
+.banner {
+  margin: 15px;
+}
+
+.divLogoDetran {
+  width: 200px;
+  text-align: left;
+}
+
+.logoDetran {
+  width: 180px;
+}
+
+.divTituloPortal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+.divTituloPortal h1 {
+  color: white;
+}
+
+.divLogoGoverno {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  justify-content: center;
+  position: relative;
+  text-align: right;
+}
+
+.divLogoGoverno img {
+  width: 180px; /* Ajuste conforme necessário */
+  position: relative;
+  z-index: 1;
+}
+
+.divLogoGoverno span {
+  width: 115px;
+  text-align: right;
+  font-size: 10px;
+  margin-top: 0px;
+  position: absolute;
+  top: 59%;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .header-container .banner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .divLogoGoverno {
+    display: none;
+  }
+
+  .divTituloPortal {
+    margin-top: 20px;
+  }
+}

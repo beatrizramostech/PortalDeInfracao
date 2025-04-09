@@ -1,0 +1,12 @@
+.container {
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-top: 64px;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    margin-left: 216px;
+    margin-right: 216px;
+  }
+}
