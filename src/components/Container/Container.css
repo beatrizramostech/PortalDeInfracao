@@ -6,7 +6,7 @@
 
 @media (min-width: 1024px) {
   .container {
-    margin-left: 216px;
-    margin-right: 216px;
+    margin-left: 0px;
+    margin-right: 108px;
   }
 }

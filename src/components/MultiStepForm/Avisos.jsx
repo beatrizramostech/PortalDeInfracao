@@ -1,16 +1,27 @@
 import React from 'react';
 import { useAlert } from '../../Contexts/AlertProvider';
+import './MultiStepForm.css';
+import { useFormContext } from '../../Contexts/FormProvider';
 
 const Avisos = () => {
   const { showAlert } = useAlert();
+  const { nextStep } = useFormContext();
+
   const handleSubmit = e => {
     e.preventDefault();
 
-    showAlert('Form bem sucedido!', 'success');
+    if (!e.target.aviso1.checked || !e.target.aviso2.checked || !e.target.aviso3.checked) {
+      console.log('erro');
+      showAlert('É necessário confirmar os avisos! ', 'error');
+    } else {
+      showAlert('Sucesso! ', 'success');
+      nextStep();
+    }
   };
 
   return (
     <form className="formAviso" onSubmit={handleSubmit}>
+      <h2>Avisos</h2>
       <div className="aviso">
         <h3 className="avisoTitulo">Aviso Legal</h3>
         <p className="avisoConteudo">
@@ -21,7 +32,7 @@ const Avisos = () => {
           estando ciente das responsabilidades legais aplicáveis.
         </p>
         <div className="check">
-          <input type="checkbox" required />
+          <input type="checkbox" name="aviso1" />
           <label>
             Estou ciente de que oferecer dados falsos é crime e pode resultar em pena de reclusão de
             2 a 12 anos e multa.
@@ -39,7 +50,7 @@ const Avisos = () => {
           competentes.
         </p>
         <div className="check">
-          <input type="checkbox" required />
+          <input type="checkbox" name="aviso2" />
           <label>
             Estou ciente de que os documentos digitalizados são considerados cópias simples e é
             minha responsabilidade apresentar o original quando necessário.
@@ -58,7 +69,7 @@ const Avisos = () => {
           sendo necessária a apresentação do original quando solicitado.
         </p>
         <div className="check">
-          <input type="checkbox" required />
+          <input type="checkbox" name="aviso3" />
           <label>
             Estou ciente das condições para aceitação de documento digital como original.
           </label>

@@ -1,19 +1,15 @@
 import { createContext, useContext, useState } from 'react';
 
-// Create the alert context
 const AlertContext = createContext();
 
-// AlertProvider wraps your app
 export const AlertProvider = ({ children }) => {
   const [alerts, setAlerts] = useState([]);
-
+  let alertCounter = 0;
   const showAlert = (message, type = 'info', timeout = 4000) => {
-    const id = Date.now();
+    const id = `alert-${Date.now()}-${alertCounter++}`;
 
-    // Add alert to state
     setAlerts(prev => [...prev, { id, message, type }]);
 
-    // Auto-remove after X seconds
     setTimeout(() => {
       setAlerts(prev => prev.filter(alert => alert.id !== id));
     }, timeout);
@@ -27,8 +23,7 @@ export const AlertProvider = ({ children }) => {
     <AlertContext.Provider value={{ showAlert }}>
       {children}
 
-      {/* Render alerts */}
-      {/* <div className="alert-container">
+      <div className="alert-container">
         {alerts.map(({ id, message, type }) => (
           <div key={id} className={`alert alert-${type}`}>
             <span>{message}</span>
@@ -37,7 +32,7 @@ export const AlertProvider = ({ children }) => {
             </span>
           </div>
         ))}
-      </div> */}
+      </div>
     </AlertContext.Provider>
   );
 };
