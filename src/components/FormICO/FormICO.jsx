@@ -1,26 +1,36 @@
-import React from 'react';
-import Avisos from '../MultiStepForm/Avisos';
-import ValidarAIT from '../MultiStepForm/ValidarAIT';
+import React, { Component, useEffect, useState } from 'react';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import { useFormContext } from '../../Contexts/FormProvider';
-import Dados from '../MultiStepForm/Dados';
+import { formICOConfig } from '../MultiStepForm/formConfig';
+import './FormICO.css';
 
-const steps = ['Avisos', 'Validar AIT', 'Dados'];
+const FormICO = () => {
+  const { step, tipoSolicitante, tipoForm } = useFormContext();
+  const [stepLabels, setStepLabels] = useState([]);
 
-const FormREC = () => {
-  const { step } = useFormContext();
+  useEffect(() => {
+    const formularioAtual = formICOConfig?.[tipoSolicitante];
 
+    if (formularioAtual && Array.isArray(formularioAtual)) {
+      const labels = formularioAtual.map(currentStep => currentStep.label);
+      console.log(labels);
+      setStepLabels(labels);
+    }
+
+    console.log(stepLabels);
+    console.log(formularioAtual);
+  }, [tipoForm, tipoSolicitante]);
+
+  const currentStep = formICOConfig?.[tipoSolicitante][step];
   return (
-    <div className='container-page' style={{ display: 'flex' }}>
-      <ProgressBar steps={steps} disableFutureSteps={true} />
+    <div className="container-page">
+      <ProgressBar steps={stepLabels} disableFutureSteps={true} />
 
       <div className="container-form" style={{ flex: 1, padding: '2rem' }}>
-        {step === 0 && <Avisos />}
-        {step === 1 && <ValidarAIT />}
-        {step === 2 && <Dados />}
+        {currentStep && <currentStep.component />}
       </div>
     </div>
   );
 };
 
-export default FormREC;
+export default FormICO;

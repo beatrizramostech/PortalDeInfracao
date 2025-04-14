@@ -4,6 +4,10 @@
   background-color: white;
   box-shadow: 0 0 4px 1px var(--cinza-2);
   margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .step-list {
@@ -14,6 +18,7 @@
   align-items: center;
   margin: 0;
   padding: 0;
+  flex-shrink: 0;
 }
 
 .step-item {

@@ -5,7 +5,7 @@ import { useFormContext } from '../../Contexts/FormProvider';
 
 const ValidarAIT = () => {
   const { showAlert } = useAlert();
-  const { nextStep, prevStep } = useFormContext();
+  const { nextStep, prevStep, setTipoForm } = useFormContext();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -13,10 +13,7 @@ const ValidarAIT = () => {
     const orgao = e.target[0].value;
     const ait = e.target[1].value;
     if (orgao === 'SELECIONE') {
-      showAlert(
-        'dsfgsdfg',
-        'error'
-      );
+      showAlert('dsfgsdfg', 'error');
       valid = false;
     }
     if (ait === '') {

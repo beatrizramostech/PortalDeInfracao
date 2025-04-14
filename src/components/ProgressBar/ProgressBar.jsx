@@ -17,7 +17,6 @@ const ProgressBar = ({ steps, disableFutureSteps = true }) => {
           if (isDisabled) statusClass = 'disabled';
           else if (isCompleted) statusClass = 'completed';
           else if (isCurrent) statusClass = 'current';
-
           return (
             <li
               key={index}

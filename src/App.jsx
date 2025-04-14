@@ -1,19 +1,20 @@
 import './App.css';
-import Container from './components/Container/Container';
+import FormICO from './components/FormICO/FormICO';
 import FormREC from './components/FormREC/FormREC';
 import Header from './components/Header/Header';
-import Avisos from './components/MultiStepForm/Avisos';
-import ValidarAIT from './components/MultiStepForm/ValidarAIT';
-import FormProvider from './Contexts/FormProvider';
+import MainPage from './components/MainPage/MainPage';
+import TipoSolicitante from './components/MultiStepForm/TipoSolicitante';
+import FormProvider, { useFormContext } from './Contexts/FormProvider';
 
 function App() {
-  console.log('App is rendering!');
+  const { tipoForm, tipoSolicitante } = useFormContext();
   return (
     <>
       <Header />
-        <FormProvider>
-          <FormREC />
-        </FormProvider>
+      {!tipoForm && <MainPage />}
+      {tipoForm && !tipoSolicitante && <TipoSolicitante tipoFormulario={tipoForm} />}
+      {tipoForm === 'ICO' && tipoSolicitante && <FormICO />}
+      {tipoForm === 'REC' && tipoSolicitante && <FormREC />}
     </>
   );
 }
