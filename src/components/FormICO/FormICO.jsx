@@ -5,23 +5,21 @@ import { formICOConfig } from '../MultiStepForm/formConfig';
 import './FormICO.css';
 
 const FormICO = () => {
-  const { step, tipoSolicitante, tipoForm } = useFormContext();
+  const { step, tipoSolicitante, tipoForm, tipoUsuario } = useFormContext();
   const [stepLabels, setStepLabels] = useState([]);
+  const [formularioFiltrado, setFormularioFiltrado] = useState([]);
 
   useEffect(() => {
     const formularioAtual = formICOConfig?.[tipoSolicitante];
-
-    if (formularioAtual && Array.isArray(formularioAtual)) {
-      const labels = formularioAtual.map(currentStep => currentStep.label);
-      console.log(labels);
-      setStepLabels(labels);
+    const filtroForm = tipoUsuario === 'servidor' ? formularioAtual.slice(1) : formularioAtual;
+    setFormularioFiltrado(filtroForm);
+    if (filtroForm && Array.isArray(filtroForm)) {
+      const labels = filtroForm.map(currentStep => currentStep.label);
+      setStepLabels(labels); 
     }
-
-    console.log(stepLabels);
-    console.log(formularioAtual);
   }, [tipoForm, tipoSolicitante]);
+  let currentStep = formularioFiltrado[step];
 
-  const currentStep = formICOConfig?.[tipoSolicitante][step];
   return (
     <div className="container-page">
       <ProgressBar steps={stepLabels} disableFutureSteps={true} />

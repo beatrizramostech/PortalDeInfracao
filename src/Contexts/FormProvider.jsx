@@ -5,13 +5,11 @@ const FormContext = createContext();
 const FormProvider = ({ children }) => {
   const [step, setStep] = useState(0);
   const [tipoSolicitante, setTipoSolicitante] = useState('SELECIONE');
-  const [tipoUsuario, setTipoUsuario] = useState('');
+  const [tipoUsuario, setTipoUsuario] = useState('servidor');
   const [tipoForm, setTipoForm] = useState();
 
   const nextStep = () => setStep(s => s + 1);
   const prevStep = () => setStep(s => s - 1);
-
-  
 
   return (
     <FormContext.Provider

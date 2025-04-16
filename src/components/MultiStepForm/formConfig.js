@@ -2,6 +2,7 @@ import Avisos from './Avisos';
 import DadosPessoais from './DadosPessoais';
 import DadosEmpresa from './DadosEmpresa';
 import ValidarAIT from './ValidarAIT';
+import CPFCNHCondutorReal from './CPFCNHCondutorReal';
 
 export const formICOConfig = {
   1: [
@@ -23,7 +24,7 @@ export const formICOConfig = {
     },
     {
       label: 'CPF e CNH do Real Condutor',
-      component: DadosPessoais,
+      component: CPFCNHCondutorReal,
     },
     {
       label: 'Inserir Documentos',

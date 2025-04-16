@@ -11,7 +11,8 @@
   --cinza-3: rgb(88, 88, 87);
 }
 html,
-body {
+body,
+#root {
   margin: 0px;
   padding: 0px;
   width: 100%;

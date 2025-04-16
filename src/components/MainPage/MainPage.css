@@ -1,0 +1,26 @@
+.main-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.button-forms {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  justify-content: center;
+  gap: 20px;
+}
+.clickform {
+  width: 25%;
+  height: 200px;
+  background-color: var(--cinza-2);
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  justify-content: center;
+  cursor: pointer;
+}

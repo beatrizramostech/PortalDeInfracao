@@ -6,13 +6,12 @@ import Aviso from '../Aviso/Aviso';
 
 const Avisos = () => {
   const { showAlert } = useAlert();
-  const { nextStep } = useFormContext();
+  const { nextStep, setTipoSolicitante } = useFormContext();
 
   const handleSubmit = e => {
     e.preventDefault();
 
     if (!e.target.aviso1.checked || !e.target.aviso2.checked || !e.target.aviso3.checked) {
-      console.log('erro');
       showAlert('É necessário confirmar os avisos! ', 'error');
     } else {
       nextStep();
@@ -51,9 +50,14 @@ const Avisos = () => {
         nameInput={'aviso3'}
       />
 
-      <button type="submit" className="botaoProximo primario">
-        Próximo
-      </button>
+      <div className="buttons-form">
+        <button type="button" className="info" onClick={() => setTipoSolicitante(undefined)}>
+          Voltar
+        </button>
+        <button type="submit" className="primario">
+          Próximo
+        </button>
+      </div>
     </form>
   );
 };

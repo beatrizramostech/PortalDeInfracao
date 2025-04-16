@@ -3,7 +3,7 @@ import { useFormContext } from '../../Contexts/FormProvider';
 import './ProgressBar.css';
 
 const ProgressBar = ({ steps, disableFutureSteps = true }) => {
-  const { step: currentStep, setStep } = useFormContext();
+  const { step: currentStep, setStep,  } = useFormContext();
 
   return (
     <aside className="progress-sidebar">
@@ -17,6 +17,7 @@ const ProgressBar = ({ steps, disableFutureSteps = true }) => {
           if (isDisabled) statusClass = 'disabled';
           else if (isCompleted) statusClass = 'completed';
           else if (isCurrent) statusClass = 'current';
+       
           return (
             <li
               key={index}
