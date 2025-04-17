@@ -2,6 +2,8 @@ import Avisos from './Avisos';
 import DadosPessoais from './DadosPessoais';
 import DadosEmpresa from './DadosEmpresa';
 import ValidarAIT from './ValidarAIT';
+import UploadDocumento from '../UploadDocumento/UploadDocumento';
+import DadosBancarios from './DadosBancarios';
 
 export const formRECConfig = {
   1: [
@@ -23,11 +25,11 @@ export const formRECConfig = {
     },
     {
       label: 'Dados Bancários',
-      // component: DadosBancarios,
+      component: DadosBancarios,
     },
     {
       label: 'Inserir Documentos',
-      component: DadosPessoais,
+      component: UploadDocumento,
     },
   ],
   2: [
@@ -49,11 +51,11 @@ export const formRECConfig = {
     },
     {
       label: 'Dados Bancários',
-      component: DadosPessoais,
+      component: DadosBancarios,
     },
     {
       label: 'Inserir Documentos',
-      component: DadosPessoais,
+      component: UploadDocumento,
     },
   ],
   3: [
@@ -71,12 +73,12 @@ export const formRECConfig = {
     },
     {
       label: 'Dados Bancários',
-      component: DadosPessoais,
+      component: DadosBancarios,
     },
     {
       label: 'Inserir Documentos',
-      component: DadosPessoais,
-    }
+      component: UploadDocumento,
+    },
   ],
   4: [
     {
@@ -89,11 +91,11 @@ export const formRECConfig = {
     },
     {
       label: 'Dados Bancários',
-      component: DadosPessoais,
+      component: DadosBancarios,
     },
     {
       label: 'Inserir Documentos',
-      component: DadosPessoais,
-    }
+      component: UploadDocumento,
+    },
   ],
 };

@@ -3,6 +3,7 @@ import DadosPessoais from './DadosPessoais';
 import DadosEmpresa from './DadosEmpresa';
 import ValidarAIT from './ValidarAIT';
 import CPFCNHCondutorReal from './CPFCNHCondutorReal';
+import UploadDocumento from '../UploadDocumento/UploadDocumento';
 
 export const formICOConfig = {
   1: [
@@ -28,10 +29,8 @@ export const formICOConfig = {
     },
     {
       label: 'Inserir Documentos',
-      component: DadosPessoais,
+      component: UploadDocumento,
     },
-    // CPFCNHCondutorReal,
-    // InserirDocumentos,
   ],
   2: [
     {
@@ -52,14 +51,12 @@ export const formICOConfig = {
     },
     {
       label: 'CPF e CNH do Real Condutor',
-      component: DadosPessoais,
+      component: CPFCNHCondutorReal,
     },
     {
       label: 'Inserir Documentos',
-      component: DadosPessoais,
+      component: UploadDocumento,
     },
-    // CPFCNHCondutorReal,
-    // InserirDocumentos,
   ],
   3: [
     {
@@ -76,14 +73,12 @@ export const formICOConfig = {
     },
     {
       label: 'CPF e CNH do Real Condutor',
-      component: DadosPessoais,
+      component: CPFCNHCondutorReal,
     },
     {
       label: 'Inserir Documentos',
-      component: DadosPessoais,
+      component: UploadDocumento,
     },
-    // CPFCNHCondutorReal,
-    // InserirDocumentos,
   ],
   4: [
     {
@@ -100,8 +95,7 @@ export const formICOConfig = {
     },
     {
       label: 'Inserir Documentos',
-      component: DadosPessoais,
+      component: UploadDocumento,
     },
-    // InserirDocumentos,
   ],
 };

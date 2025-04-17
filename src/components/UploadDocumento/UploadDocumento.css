@@ -1,0 +1,26 @@
+.upload-container {
+  border: 1px solid #ccc;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-box {
+  width: 100%;
+  max-width: 500px;
+  height: 180px;
+  background-color: var(--cinza-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #555;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.upload-box:hover {
+  background-color: #ccc; /* Um hoverzinho básico */
+}

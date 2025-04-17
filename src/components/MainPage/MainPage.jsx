@@ -24,6 +24,10 @@ const MainPage = () => {
             <img src={IconREC} alt="Recurso de Infração" className="icone-img" />
             REC - Recurso de Infração
           </div>
+          <div className="clickform" onClick={() => handleCLick('REC')}>
+            <img src={IconREC} alt="Recurso de Infração" className="icone-img" />
+            Suspensão/Cassação de CNH
+          </div>
         </div>
       </div>
     </Container>

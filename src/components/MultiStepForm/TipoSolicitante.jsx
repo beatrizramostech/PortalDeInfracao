@@ -33,7 +33,7 @@ const TipoSolicitante = ({ tipoFormulario }) => {
                   <option value="5">Terceiro Interessado</option>
                 </>
               ) : (
-                <option value="4">Condutor Real</option>
+                <option value="4">Real Condutor</option>
               )}
             </select>
           </div>

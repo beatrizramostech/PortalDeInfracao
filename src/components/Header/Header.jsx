@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import logoDetran from '../../assets/logoDetran.png';
 import './Header.css';
 import { useFormContext } from '../../Contexts/FormProvider';
@@ -8,11 +8,24 @@ const Header = () => {
   const { tipoUsuario } = useFormContext();
   const { login, user, logout } = useUser();
   const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const handleLogin = () => {
     const fakeUser = {
       id: 1,
       name: 'Maria',
-      tipoUsuario: 'cidadao',
+      tipoUsuario: 'servidor',
     };
 
     login(fakeUser);
@@ -21,6 +34,7 @@ const Header = () => {
   const handleDropdown = () => {
     setOpen(!open);
   };
+
   return (
     <>
       <header className="header-container">
@@ -29,7 +43,7 @@ const Header = () => {
             <img className="logoDetran" src={logoDetran} alt="Logo Detran" />
           </div>
           <div className="divTituloPortal">
-            <h1 className="tituloPortal">Portal de Infrações</h1>
+            <h1 className="tituloPortal">Recursos de Infrações e Penalidades</h1>
           </div>
           <div className="divLogoGoverno">
             <img
@@ -44,7 +58,7 @@ const Header = () => {
       <div className="subheader">
         <div className="tipo-usuario">{tipoUsuario === 'servidor' ? 'Servidor' : 'Cidadão'}</div>
 
-        <ul className="dropdown">
+        <ul className="dropdown" ref={dropdownRef}>
           <li className="dropdown-titulo" onClick={handleDropdown}>
             {user ? (
               user.name
@@ -59,7 +73,7 @@ const Header = () => {
             <li className="dropdown-item">Item 2</li>
             <li className="dropdown-item">Item 3</li>
             <li className="dropdown-divider" />
-            <li className="dropdown-item" onClick={logout}>
+            <li className="dropdown-item logout" onClick={logout}>
               Sair
             </li>
           </div>

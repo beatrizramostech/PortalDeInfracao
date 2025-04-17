@@ -119,13 +119,3 @@ input[type='checkbox']:hover {
   justify-content: space-between;
 }
 
-.tipo-usuario {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 2rem;
-  background-color: var(--cinza-2);
-  padding: 0 2rem;
-  color: var(--cinza-1);
-  font-weight: 700;
-}

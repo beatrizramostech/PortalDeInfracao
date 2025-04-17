@@ -81,6 +81,17 @@
     margin-top: 20px;
   }
 }
+.tipo-usuario {
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
+  background-color: var(--cinza-2);
+  padding: 0 2rem;
+  color: var(--cinza-1);
+  font-weight: 700;
+}
 
 .subheader {
   width: 100%;
@@ -88,7 +99,7 @@
   background-color: white;
   box-shadow: 0 0 10px 0 var(--cinza-2);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   border-bottom: 1px solid var(--cinza-2);
 }
 
@@ -100,6 +111,7 @@
   padding-inline-start: 0;
   min-width: 100px;
   margin-right: 32px;
+
 }
 .dropdown-lista {
   display: none;
@@ -120,6 +132,7 @@
   align-items: center;
   justify-content: flex-end;
   margin-right: 1rem;
+  cursor: pointer;
 }
 .dropdown-item {
   text-align: end;
@@ -138,4 +151,8 @@
 .dropdown-divider {
   border-top: 1px solid var(--cinza-2);
   height: 1px;
+}
+
+.logout {
+  cursor: pointer;
 }
