@@ -29,8 +29,8 @@ const TipoSolicitante = ({ tipoFormulario }) => {
               <option value="3">Proprietário do veículo</option>
               {tipoFormulario === 'REC' ? (
                 <>
-                  <option value="Responsavel AIT">Responsável AIT</option>
-                  <option value="Terceiro Interessado">Terceiro Interessado</option>
+                  <option value="4">Responsável AIT</option>
+                  <option value="5">Terceiro Interessado</option>
                 </>
               ) : (
                 <option value="4">Condutor Real</option>
