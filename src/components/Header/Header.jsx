@@ -3,6 +3,7 @@ import logoDetran from '../../assets/logoDetran.png';
 import './Header.css';
 import { useFormContext } from '../../Contexts/FormProvider';
 import { useUser } from '../../Contexts/UserContext';
+import estadoSSP from '../../assets/estadoSSP.png';
 
 const Header = () => {
   const { tipoUsuario } = useFormContext();
@@ -25,7 +26,7 @@ const Header = () => {
     const fakeUser = {
       id: 1,
       name: 'Maria',
-      tipoUsuario: 'servidor',
+      tipoUsuario: 'cidadao',
     };
 
     login(fakeUser);
@@ -48,10 +49,9 @@ const Header = () => {
           <div className="divLogoGoverno">
             <img
               className="logoGoverno"
-              src="//cdn.es.gov.br/images/logo/governo/SECOM/Brasao_Governo_Secretaria_horizontal_white_right_small.png"
+              src={estadoSSP}
               alt="Brasão Governo do Estado Espírito Santo"
             />
-            <span className="nomeSecretaria">Secretaria da Segurança Pública e Defesa Social</span>
           </div>
         </div>
       </header>
